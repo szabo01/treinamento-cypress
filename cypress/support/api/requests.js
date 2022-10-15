@@ -59,7 +59,7 @@ class Requests {
     const id = response.body.bookingid
 
     return cy.api({
-      mehotd: 'PUT',
+      method: 'PUT',
       url: `booking/${id}`,
       headers: {
         Cookie: `token=${Cypress.env('token')}`
