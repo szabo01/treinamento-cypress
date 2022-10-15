@@ -1,0 +1,36 @@
+
+servidor
+[
+	{
+		"bookingid": 8
+    "name": "Robson"
+	},
+]
+
+[
+	{
+		"bookingid": numero
+    "name": palavra
+	},
+]
+
+
+[
+	{
+		"bookingid": "numero"
+    "name": palavra
+	},
+]
+
+
+
+
+o contrato booking atende ao acordo booking.id.numero ?
+o contrato booking atende ao acordo name.palavra ?
+
+
+
+
+
+
+
