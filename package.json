@@ -12,6 +12,7 @@
   "devDependencies": {
     "@bahmutov/cy-api": "^2.2.1",
     "cy-spok": "^1.5.2",
-    "cypress": "^9.5.0"
+    "cypress": "^9.5.0",
+    "cypress-grep": "^2.4.1"
   }
 }

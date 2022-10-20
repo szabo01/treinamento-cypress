@@ -20,3 +20,5 @@ import './commands'
 // require('./commands')
 
 import '@bahmutov/cy-api'
+
+require('cypress-grep')()

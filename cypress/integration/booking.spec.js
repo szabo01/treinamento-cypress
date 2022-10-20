@@ -10,7 +10,7 @@ describe('Validar teste de contrato do GET Booking', () => {
   before(() => {
     req.doAuth()
   })
-  it('GET Booking', () => {
+  it('GET Booking critico', () => {
 
     req.getBooking()
       .then(getBookingResponse => {
@@ -75,8 +75,32 @@ describe('Validar teste de contrato do GET Booking', () => {
       })
     })
   });
-  // validar alteração sem token
-  // validar alteração com token inválido
-  // validar alteração com sucesso
+
+  // DESAFIO
+
+  it('Deletar uma reserva com token inválido', () => {
+    req.postBooking().then(postBookingResponse => {
+      req.deleteWithInvalidToken(postBookingResponse).then(deleteBookingResponse => {
+        assertions.shouldHaveStatus(deleteBookingResponse, 403)
+      })
+    })
+  });
+
+  it('Deletar uma reserva sem token ', () => {
+    req.postBooking().then(postBookingResponse => {
+      req.deleteWithouToken(postBookingResponse).then(deleteBookingResponse => {
+        assertions.shouldHaveStatus(deleteBookingResponse, 403)
+      })
+    })
+  });
+  it('Deletar uma reserva com sucesso', { tags: '@smoke' }, () => {
+    req.postBooking().then(postBookingResponse => {
+      req.deleteBooking(postBookingResponse).then(deleteBookingResponse => {
+        assertions.shouldHaveStatus(deleteBookingResponse, 201)
+      })
+    })
+  });
+
+
 })
 

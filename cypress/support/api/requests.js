@@ -74,6 +74,43 @@ class Requests {
           "checkout": "2020-01-02"
         },
         "additionalneeds": "Breakfast"
+      }
+    })
+  }
+
+  deleteBooking(response) {
+    const id = response.body.bookingid
+
+    return cy.api({
+      method: 'DELETE',
+      url: `booking/${id}`,
+      headers: {
+        Cookie: `token=${Cypress.env('token')}`
+      }
+    })
+  }
+
+  deleteWithInvalidToken(response) {
+    const id = response.body.bookingid
+
+    return cy.api({
+      method: 'DELETE',
+      url: `booking/${id}`,
+      headers: {
+        Cookie: 'token=token-errado'
+      },
+      failOnStatusCode: false
+    })
+  }
+
+  deleteWithouToken(response) {
+    const id = response.body.bookingid
+
+    return cy.api({
+      method: 'DELETE',
+      url: `booking/${id}`,
+      headers: {
+        Cookie: {}
       },
       failOnStatusCode: false
     })
